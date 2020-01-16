@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+//buildscript {
+//    ext {//build.gradle에서 사용하는 전역변수를 설정하겠다는 의미 springBootVersion 전역변수를 생성하고 그값을 2.1.7.RELEASE로 하겠다는 의미
+//        springBootVersion = '2.1.7.RELEASE'
+//    }
+//    repositories {
+//        mavenCentral()
+//        jcenter()
+//    }
+//    dependencies {//이프로젝트의 플러그인 의존성 관리를 위한 설정 //인텔리제이의 플러그인 관리가 아님.
+//        classpath("org.springfrramework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//    }
+//}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'//스프링 부트의 의존성을 관리해주는 플러그인이라 꼭추가 할것
+//앞의 4개의 플래그인은 자바와 스프링 부트를 사용하기 위해서는 필수플러그인들이니 항상 추가
+
+group 'com.jojoidu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
