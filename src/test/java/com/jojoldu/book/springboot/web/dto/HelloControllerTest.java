@@ -1,6 +1,5 @@
-package com.jojoldu.book.springboot;
+package com.jojoldu.book.springboot.web.dto;
 
-import com.jojoldu.book.springboot.web.dto.HelloResponseDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.assertj.core.api.Assertions.assertThat;
-
 @RunWith(SpringRunner.class)//1
 @WebMvcTest//2
 public class HelloControllerTest {
@@ -33,33 +31,33 @@ public class HelloControllerTest {
 
 
     @Test
-    public void helloDto가_리턴된다() throws Exception{
+    public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 1000;
 
         mvc.perform(
                 get("/hello/dto")
-        .param("name",name)
-        .param("amount",String.valueOf(amount)))
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name",is(name)))
-                .andExpect(jsonPath("$.amount",is(amount)));
-
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
     }
 
-//    @Test
-//    public void 롬북_기능_테스트(){
-//        //given
-//        String name = "hello";
-//        int amount = 1000;
-//
-//        //when
-//        HelloResponseDto dto = new HelloResponseDto(name,amount);
-//
-//        //then
-//
-//        assertThat(dto.getName()).isEqualTo(name);
-//        assertThat(dto.getAmount()).isEqualTo(amount);
-//    }
+    @Test
+    public void 롬북_기능_테스트(){
+        //given
+        String name = "hello";
+        int amount = 1000;
+
+        //when
+        HelloResponseDto dto = new HelloResponseDto(name,amount);
+
+        //then
+
+        assertThat(dto.getName()).isEqualTo(name);
+        assertThat(dto.getAmount()).isEqualTo(amount);
+    }
+
 
 }
