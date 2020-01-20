@@ -46,10 +46,10 @@ public class PostsApiControllerTest {
 
         PostsSaveRequestDto requestDto =
                 PostsSaveRequestDto.builder()
-                .title(title)
-                .content(content)
-                .author("author")
-                .build();
+                        .title(title)
+                        .content(content)
+                        .author("author")
+                        .build();
         String url = "http://localhost:"+port+"/api/v1/posts";
 
         //when
@@ -63,6 +63,11 @@ public class PostsApiControllerTest {
 
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
+
+        Long id = all.get(0).getId();
+        String test2 = all.get(0).getTitle();
+        System.out.println(id);
+        System.out.println(test2);
 
     }
 }
