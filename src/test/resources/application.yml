@@ -3,4 +3,6 @@ spring:
     show-sql: true
     hibernate:
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-
+  h2:
+    console:
+      enabled: true
