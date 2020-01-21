@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.domain.posts;
 
+import org.apache.tomcat.jni.Local;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,6 +59,30 @@ public class PostsRepositoryTest {
 
         //then
         Posts Posts = postsList.get(0);
+
+    }
+
+    @Test
+    public void BaseTimeEntity_등록(){
+        //given
+        LocalDateTime now = LocalDateTime.of(2020,01,21,0,0,0);
+        postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+
+
+        //when
+        List<Posts> postsList = postsRepository.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>createDate="+posts.getCreatedDate()+",ModfiedDate="+posts.getModifiedDate());
+
+        assertThat(posts.getCreatedDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
 
     }
 
