@@ -1,7 +1,13 @@
 spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localHost:3306/awstest
+    username: root
+    password: iotplex
   jpa:
     show-sql: true
     hibernate:
+      ddl-auto: update
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   h2:
     console:
