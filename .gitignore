@@ -4,5 +4,3 @@
 .gradle
 
 application-oauth.yml
-build/
-src/test/resources/
