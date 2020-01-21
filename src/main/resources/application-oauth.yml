@@ -1,0 +1,5 @@
+spring:
+  jta:
+    bitronix:
+      datasource:
+        enable-jdbc4-connection-test: true
