@@ -26,4 +26,19 @@ public class IndexControllerTest {
         //then
         //assertThat(body).contains("스프링 부트로 시작하는 웹 서비스");
     }
+    @Test
+    public void 롬북_기능_테스트(){
+        //given
+        String name = "hello";
+        int amount = 1000;
+
+        //when
+        HelloResponseDto dto = new HelloResponseDto(name,amount);
+
+        //then
+
+        assertThat(dto.getName()).isEqualTo(name);
+        assertThat(dto.getAmount()).isEqualTo(amount);
+    }
+
 }

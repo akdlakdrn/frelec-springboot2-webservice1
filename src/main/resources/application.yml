@@ -14,3 +14,12 @@ spring:
       enabled: true
   profiles:
     include: oauth
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1034565949993-cken3q5ieo15ev3ld424bi730iqgps08.apps.googleusercontent.com
+            client-secret: iF9QedhTPBzF424lTXl9pcAP
+            scope : profile,email
+
